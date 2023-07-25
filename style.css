@@ -563,14 +563,14 @@ input:checked + .slider:before {
 
 #slide-arrow-prev {
     float: left;
-    left: 0;
+    left: 10;
     margin-right: 1%;
     border-radius: 2rem 2rem 2rem 2rem;
 }
 
 #slide-arrow-next {
     float: right;
-    right: 0;
+    right: 10;
     margin-left: 1%;
     border-radius: 2rem 2rem 2rem 2rem;
 }
@@ -610,6 +610,97 @@ input:checked + .slider:before {
 
 .add-top-padding{
     margin-top: 10px;
+}
+
+/* Styling for the carousel container */
+.carousel {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+/* Styling for each video container */
+.video-container {
+    flex: 1 0 100%; /* Two videos side by side */
+    margin-right: 10px;
+}
+
+/* Styling for each video */
+video {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-button {
+    position: relative;
+    align-items: center;
+    font-size: 2rem;
+    top: -250px;
+    height: 4rem;
+    background-color: #6dbdff;
+    border: none;
+    width: 5%;
+    font-size: 2rem;
+    padding: 0;
+    cursor: pointer;
+    opacity: 1.0;
+    transition: color 100ms;
+}
+.carousel-button:hover,
+.carousel-button:focus {
+    background-color: #2196F3;
+    opacity: 1;
+}
+
+
+.carousel-button.left {
+    left: -400px;
+    border-radius: 2rem 2rem 2rem 2rem;
+
+}
+
+.carousel-button.right {
+    right: -400px;
+    border-radius: 2rem 2rem 2rem 2rem;
+
+} 
+
+.carousel-slider-wrapper {
+    position: relative;
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.carousel-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    /* border-radius: 0.5rem; */
+}
+
+.carousel-slider video {
+    flex: 1 0 50%;
+    /* scroll-snap-align: start; */
+    object-fit: cover;
+}
+
+.carousel-slider-nav {
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+
+@media only screen and (max-width: 950px) {
+    .new-line-small-device {
+        display:block;
+    }
 }
 
 @media screen and (max-width: 750px) {

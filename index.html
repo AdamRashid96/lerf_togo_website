@@ -137,10 +137,83 @@
                 LERF-TOGO uses vision-language models zero-shot to output a semantic distribution over an object 
                 given a natural language query to accomplish an assortment of tasks.
             </h1>
+            <br>
             <video id="main-video" autobuffer muted autoplay loop controls>
                 <source id="mp4" src="data/LERF-TOGO.mp4" type="video/mp4">
             </video>
+            
+            <!-- <section>
+                <nav>
+                  <div class="carousel">
+                    <div class="video-container">
+                      <video  loop playsinline muted autoplay>
+                        <source autoplay src="data/high_res/bookstore.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="video-container">
+                      <video  loop playsinline muted autoplay>
+                        <source autoplay src="data/high_res/donuts.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="video-container">
+                      <video  loop playsinline muted autoplay>
+                        <source autoplay src="data/high_res/bouquet.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="video-container">
+                      <video  loop playsinline muted autoplay>
+                        <source autoplay src="data/high_res/figurines.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+              
+                  <button class="carousel-button left video-btn" type="button">&lt;</button>
+                  <button class="carousel-button right video-btn" type="button">&gt;</button>
+                </nav>
+            </section> -->
+            <nav>
+                <div class="carousel-slider-wrapper">
+                    <div class = "carousel-slider">
+                        <div class="video-container">
+                            <video  loop playsinline muted autoplay>
+                                <source autoplay src="data/carousel/saucepan_lid.mp4" type="video/mp4">
+                            </video>
+                        </div>
 
+                        <div class="video-container">
+                            <video  loop playsinline muted autoplay>
+                                <source autoplay src="data/carousel/saucepan_handle.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="video-container">
+                            <video  loop playsinline muted autoplay>
+                                <source autoplay src="data/carousel/wine_neck.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="video-container">
+                            <video  loop playsinline muted autoplay>
+                                <source autoplay src="data/carousel/corkscrew_handle.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="video-container">
+                            <video  loop playsinline muted autoplay>
+                                <source autoplay src="data/carousel/powerstrip_plug.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="video-container">
+                            <video  loop playsinline muted autoplay>
+                                <source autoplay src="data/carousel/powerstrip_base.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <button class="carousel-button left" type="button">&lt;</button>
+                    <button class="carousel-button right" type="button">&gt;</button>
+                </div>
+            </nav>
 
             <div class="base-row add-top-padding">
                 <h1 id="abstract">Abstract</h1>
@@ -402,7 +475,7 @@
                     </div>
                 </div>
 
-                <div class="base-row add-top-padding">
+                <!-- <div class="base-row add-top-padding">
                     <img src="data/nerfstudio_logo.png" alt="Nerfstudio" style="height: 5em; margin-top:2em" />
                     <h1 id="abstract">
                         <a id="coming_soon">Integration</a>
@@ -410,18 +483,18 @@
                     <p class="paragraph">
                         LERF is integrated into the popular research codebase <a
                             href="https://github.com/nerfstudio-project/nerfstudio/">Nerfstudio</a>! Find the code <a
-                            href="https://github.com/kerrj/lerf">here</a>. This video
+                            href="https://github.com/kerrj/lerf">here</a>. This video -->
                         <!-- , and will -->
                         <!-- publicize code inside the popular research -->
                         <!-- codebase <a href="https://github.com/nerfstudio-project/nerfstudio/">Nerfstudio</a>. This video -->
-                        shows a user typing in queries and visualizing results from a LERF in real-time.
+                        <!-- shows a user typing in queries and visualizing results from a LERF in real-time.
                         We're excited about what people will create with natural language NeRF interaction :)
 
                     </p>
                 </div>
                 <video id="main-video" muted loop controls>
                     <source id="mp4" src="data/lerf_interaction.mp4" type="video/mp4">
-                </video>
+                </video> -->
 
                 <!-- <div class="highlight-none notranslate"><div class="highlight"><pre id="codecell0"><span></span>@article{nerfstudio, -->
                 <div class="citation add-top-padding">
@@ -473,4 +546,31 @@
         <source src="data/playback_webm/shoerack_concat.webm" type="video/webm">
         <source src="data/playback/shoerack_concat.mp4" type="video/mp4">
     </video>
+
+    <script>
+        const carousel = document.querySelector('.carousel-slider');
+        const videoContainers = document.querySelectorAll('.video-container');
+        let currentPosition = 0;
+  
+        const leftButton = document.querySelector('.carousel-button.left');
+        leftButton.addEventListener('click', () => {
+          currentPosition = Math.max(0, currentPosition - 1);
+          carousel.scrollTo({ left: videoContainers[currentPosition].offsetLeft, behavior: 'smooth' });
+        });
+  
+        const rightButton = document.querySelector('.carousel-button.right');
+        rightButton.addEventListener('click', () => {
+          currentPosition = Math.min(currentPosition + 1, videoContainers.length - 1);
+          carousel.scrollTo({ left: videoContainers[currentPosition].offsetLeft, behavior: 'smooth' });
+        });
+  
+        // carousel.addEventListener('wheel', (event) => {
+        //   event.preventDefault();
+        //   const direction = event.deltaY > 0 ? 1 : -1;
+        //   currentPosition += direction;
+        //   currentPosition = Math.max(0, Math.min(currentPosition, videoContainers.length - 1));
+        //   carousel.scrollTo({ left: videoContainers[currentPosition].offsetLeft, behavior: 'smooth' });
+        // });
+    </script>
 </body>
+</html>
