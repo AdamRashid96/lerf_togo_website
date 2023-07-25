@@ -134,8 +134,7 @@
             </div>
             <h1 class="tldr">
                 <b>TL;DR</b>:
-                LERF-TOGO uses vision-language models zero-shot to output a semantic distribution over an object 
-                given a natural language query to accomplish an assortment of tasks.
+                LERF-TOGO uses LERF and DINO features to find semantic grasps for language-specified tasks performing zero-shot semantic grasping.
             </h1>
             <br>
             <video id="main-video" autobuffer muted autoplay loop controls>
@@ -354,9 +353,9 @@
                 <div class="base-row add-top-padding">
                     <h1>Why LERF?</h1>
                     <p class="paragraph">
-                        LERF embeds zero-shot visual-language models into 3D which allows for the identification of long tail objects.
-                        This makes LERF-TOGO zero-shot. LERF is also trained on multi-scale CLIP features, which allows for part decomposition.
-                        Conceptfusion embeds CLIP features into 3D but it uses SAM masks which can struggle with fine details.
+                        LERF provides a dense, multi-scale 3D language field that can be queried zero-shot for long-tail objects. Since LERF 
+                        is trained on multi-scale CLIP features, it can support more granular language queries like those of object parts. Similarly to LERF, Conceptfusion 
+                        creates a dense, 3D language field, but it uses SAM masks which can struggle with granular queries.
                     </p>
                 </div>
 
@@ -366,16 +365,16 @@
                 <div id="why-lerf">
                     <h1> Why DINO?</h1>
                     <p class="paragraph">
-                        LERF has no sense of objectness, meaning its 
-                        relevancy outputs often return incomplete activations over an object which are insufficient for subsequent 
-                        part queries. LERF-TOGO mitigates this lack of spatial grouping by extracting a 3D object mask via DINO features.
+                        LERF has no sense of objectness, meaning the activation maps returned by LERF  
+                        are sometimes incomplete or don't respect the object's geometric boundaries.
+                        This is can problematic as the object of interest might not be activated in a way that allows for fine-tuned part queries. LERF-TOGO mitigates this lack of spatial grouping by extracting a 3D object mask via DINO features.
                         This object mask provides a region in which we can search for the part query.
                     </p>
                     <img id="pipeline-img" src="data/pipeline.jpg" />
                 </div>
 
-                <h1 id="abstract">LERF 🤝 ChatGPT</h1>
-                <div class="paragraph">
+                <!-- <h1 id="abstract">LERF 🤝 ChatGPT</h1> -->
+                <!-- <div class="paragraph">
                     Natural language interaction could allow LLMs to interrogate the 3D world.
                     We show an illustrative example where ChatGPT provides language queries of objects to look for to
                     clean a coffee spill.
@@ -431,12 +430,12 @@
                                 the cleaning supplies after the spill has been cleaned up.</li>
                         </ul>
                     </div>
-                </div>
-                <div class="paragraph">
+                </div> -->
+                <!-- <div class="paragraph">
                     Hover over each of the highlighted words to see LERF's relevancy maps for each response.
-                </div>
+                </div> -->
 
-                <div id="gpt-results">
+                <!-- <div id="gpt-results">
                     <div id="gpt-img-col">
                         <img id="hover-image" src="data/gpt_example/base.jpg" style="width: 100%" alt="Default Image">
                     </div>
@@ -473,7 +472,7 @@
                             Cabinet or
                             drawer</div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- <div class="base-row add-top-padding">
                     <img src="data/nerfstudio_logo.png" alt="Nerfstudio" style="height: 5em; margin-top:2em" />
@@ -501,7 +500,7 @@
                     <h1 id="abstract"> Citation </h1>
                     <p> If you use this work or find it helpful, please consider citing: (bibtex) </p>
                     <pre id="codecell0">@article{lerf2023,
-&nbsp;author = {Kerr, Justin and Kim, Chung Min and Goldberg, Ken and Kanazawa, Angjoo and Tancik, Matthew},
+&nbsp;author = {Place, holder},
 &nbsp;title = {LERF: Language Embedded Radiance Fields},
 &nbsp;journal = {arXiv preprint arXiv:2303.09553},
 &nbsp;year = {2023},
