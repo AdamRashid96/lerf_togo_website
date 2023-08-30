@@ -1,6 +1,7 @@
 
-var video_names = ['bouquet','figurines','kitchen', 'donuts', 'teatime', 'bookstore', 'grocery', 'garden', 'shoes'];
+var video_names = ['blackmug', 'bouquet','figurines','kitchen', 'donuts', 'teatime', 'bookstore', 'grocery', 'garden', 'shoes'];
 var download_paths = [
+  'data/high_res/black_mug_geom_grasps.mp4',
   'data/high_res/bouquet.mp4',
   'data/high_res/figurines.mp4',
   'data/high_res/kitchen.mp4', 

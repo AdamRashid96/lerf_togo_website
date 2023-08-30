@@ -170,9 +170,42 @@
                   <button class="carousel-button right video-btn" type="button">&gt;</button>
                 </nav>
             </section> -->
+            <div class="base-row add-top-padding">
+                <h1 id="abstract">Experiments</h1>
+            </div>
             <nav>
                 <div class="carousel-slider-wrapper">
                     <div class = "carousel-slider">
+                        <div class="video-container">
+                            <video  loop playsinline muted autoplay>
+                                <source autoplay src="data/carousel/rose_plantstem.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="video-container">
+                            <video  loop playsinline muted autoplay>
+                                <source autoplay src="data/carousel/saucepan_pickplace.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="video-container">
+                            <video  loop playsinline muted autoplay>
+                                <source autoplay src="data/carousel/knob_twist.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="video-container">
+                            <video  loop playsinline muted autoplay>
+                                <source autoplay src="data/carousel/spacemouse_press.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="video-container">
+                            <video  loop playsinline muted autoplay>
+                                <source autoplay src="data/carousel/estop_press.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        
                         <div class="video-container">
                             <video  loop playsinline muted autoplay>
                                 <source autoplay src="data/carousel/saucepan_lid.mp4" type="video/mp4">
@@ -292,10 +325,16 @@
                     <div class="base-row thumbnail-row" , id="thumbnails-scroll">
                         <div class="base-col thumbnail-col">
                             <button class="thumbnail-btn" id="thumb-0">
+                                <img src="data/thumbnails/blackmug_thumbnail.jpg" alt="paper" class="thumbnails" />
+                                Black Mug
+                            </button>
+                        </div>
+                        <!-- <div class="base-col thumbnail-col">
+                            <button class="thumbnail-btn" id="thumb-0">
                                 <img src="data/thumbnails/bouquet_thumbnail.jpg" alt="paper" class="thumbnails" />
                                 Bouquet
                             </button>
-                        </div>
+                        </div> -->
                         <div class="base-col thumbnail-col">
                             <button class="thumbnail-btn" id="thumb-1">
                                 <img src="data/thumbnails/figurines_thumbnail.jpg" alt="paper" class="thumbnails" />
@@ -509,10 +548,14 @@
             </div>
         </div>
     </div>
-    <video id="bouquet" controls="false" loop autoplay muted class="videos" webkit-playsinline playsinline>
+    <video id="blackmug" controls="false" loop autoplay muted class="videos" webkit-playsinline playsinline>
+        <!-- <source src="data/playback_webm/bouquet_concat.webm" type="video/webm"> -->
+        <source src="data/playback/black_mug_concat.mp4" type="video/mp4">
+    </video>
+    <!-- <video id="bouquet" controls="false" loop autoplay muted class="videos" webkit-playsinline playsinline>
         <source src="data/playback_webm/bouquet_concat.webm" type="video/webm">
         <source src="data/playback/bouquet_concat.mp4" type="video/mp4">
-    </video>
+    </video> -->
     <video id="figurines" controls="false" loop muted class="videos" webkit-playsinline playsinline>
         <source src="data/playback_webm/figurines_concat.webm" type="video/webm">
         <source src="data/playback/figurines_concat.mp4" type="video/mp4">
@@ -553,14 +596,24 @@
   
         const leftButton = document.querySelector('.carousel-button.left');
         leftButton.addEventListener('click', () => {
-          currentPosition = Math.max(0, currentPosition - 1);
-          carousel.scrollTo({ left: videoContainers[currentPosition].offsetLeft, behavior: 'smooth' });
+            if (currentPosition - 1 < 0) {
+                currentPosition = videoContainers.length - 1;
+            } else {
+                currentPosition = currentPosition - 1;
+            }
+            
+            carousel.scrollTo({ left: videoContainers[currentPosition].offsetLeft, behavior: 'smooth' });
         });
   
         const rightButton = document.querySelector('.carousel-button.right');
         rightButton.addEventListener('click', () => {
-          currentPosition = Math.min(currentPosition + 1, videoContainers.length - 1);
-          carousel.scrollTo({ left: videoContainers[currentPosition].offsetLeft, behavior: 'smooth' });
+            if (currentPosition + 1 > videoContainers.length - 1) {
+                currentPosition = 0;
+            } else {
+                currentPosition = currentPosition + 1;
+            }
+            // currentPosition = Math.min(currentPosition + 1, videoContainers.length - 1);
+            carousel.scrollTo({ left: videoContainers[currentPosition].offsetLeft, behavior: 'smooth' });
         });
   
         // carousel.addEventListener('wheel', (event) => {
